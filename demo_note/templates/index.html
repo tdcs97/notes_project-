@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"><![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://kit.fontawesome.com/8fec3a65dd.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="{% static 'css/mycss.css' %}" rel="stylesheet"/>
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                .a
+                {
+                    margin-top:15px;
+                    height:40px;
+                    padding-left:20px;
+                }
+                body{
+                    background-image:url('../static/images/kelly-sikkema-Oz_J_FXKvIs-unsplash.jpg');
+                    /*background-color:black;*/
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    overflow-y: scroll;
+                }
+                body::-webkit-scrollbar {
+                    display: none;
+                }
+                body {
+                    -ms-overflow-style: none;  
+                    scrollbar-width: none;  
+                }
+                .ftco-section
+                {
+                    color:#727272;
+                    font-size:21px;
+                    margin-top:150px;
+                    margin-left:40px;
+                }
+                .link
+                {
+                    text-decoration: underline dotted 4px;
+                    color:#727272; 
+                    font-size:20px;
+                }
+            </style>
+    </head>
+    <body>
+
+        <div class="row p-auto">
+            <div class="col-sm-3 mt-3">
+                <a href="index/" style="margin-left:3px; font-family:fantasy; font-weigth:bold; color:#007b76; font-size:30px;"><i>PNWAT</i><i> Notes</i></a>
+                <img src="{% static 'images/Untitled.png' %}" alt="path not found" style="margin-left:5px; height:50px; border-radius:50px;" />
+            </div>
+            <div class="col-sm-6 mt-3">
+                <form method="get" action="/search/">
+                    <span><input type="text" placeholder="Search...." name="query" id="query" style=" font-size:30px; width:500px; margin-left:90px; background-color:#f4f4f4; border-radius:10px; height:50px;" ></span>
+                    <span><input type="submit" class="m-0" value="Search" style=" width:80px; background-color:#dfe7ea; border-radius:100%; height:50px;"/></span>
+                </form>
+            </div>
+            <div class="col-sm-3 mt-3" style="float:right;">
+                {% comment %} <i class="fa fa-refresh fa-xl" style="margin-left:15px;" aria-hidden="true"></i>
+                <i class="fas fa-grip-lines fa-xl" style="margin-left:15px;"></i>
+                <i class="fas fa-cog fa-xl" style="margin-left:15px;"></i>
+                <i class="fa-solid fa-braille fa-xl" style="margin-left:50px;"></i> {% endcomment %}
+                <img src="{% static 'images/marcos-paulo-prado-tcyW6Im5Uug-unsplash.jpg' %}" style="width:40px; height:40px; float:right; margin-right:20px; border-radius:50%;"/>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+                <div class="col-sm-3">
+                    {% if request.user.is_authenticated %}
+                            <div class="a">
+                                <a href="/userpage/" class="link"><img src="{% static 'images/notes.png' %}" style="margin-right:10px; margin-left:20px; color:black;"/><span><b>Notes</b></span></a>
+                            </div>
+                    {% else %}
+                            <div class="a">
+                                <a href="/index/" class="link"><img src="{% static 'images/notes.png' %}" style="margin-right:10px; margin-left:20px; color:black;"/></i><span><b>Notes</b></span></a>
+                            </div>
+                    {% endif %}
+                    {% comment %} <div class="a">
+                        <div class="a">
+                            <a href="" class="link"><i class="fas fa-bell options" style="margin-right:10px;"></i><span><b>Reminders</b></span></a>
+                        </div>
+                    </div>
+                    <div class="a">
+                        <div class="a">
+                            <a href="" class="link"><i class="fas fa-pencil-alt options" style="margin-right:10px; text-decoration: none;"></i><span><b>Edit Lables</b></span></a>
+                        </div>
+                    </div>
+                    <div class="a">
+                        <div class="a">
+                            <a href="" class="link"><i class="fas fa-archive options" style="margin-right:10px; text-decoration: none;"></i><span><b>Archive</b></span></a>
+                        </div>
+                    </div>
+                    <div class="a">
+                        <div class="a">
+                            <a href="" class="link"><i class="fas fa-trash-alt options" style="margin-right:10px; text-decoration: none;"></i><span><b>Trash</b></span></a>
+                        </div>
+                    </div> {% endcomment %}
+                    {% if request.user.is_authenticated %}
+                    <div class="a">
+                        <div class="a">
+                            <a href="/user_logout/" class="link"><img src="{% static 'images/logout.png' %}" style="margin-right:10px;"/></i><span><b>LogOut</b></span></a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="a">
+                        <div class="a">
+                            <a href="/register/" class="link"><img src="{% static 'images/signup.png' %}" style="margin-right:10px;"/></i><span><b>SignUP</b></span></a>
+                        </div>
+                    </div>
+                    <div class="a">
+                        <div class="a">
+                            <a href="/user_login/" class="link"><img src="{% static 'images/login1.png' %}" style="margin-right:10px;"/></i><span><b>Login</b></span></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="a">
+                        <div class="a">
+                            <a href="/contact/" class="link"><i class="fa fa-address-card fa-xl" style="margin-right:10px; color:#969696;" aria-hidden="true"></i><span><b>Contact Us</b></span></a>
+                        </div>
+                    </div>
+                    <div class="a">
+                        <div class="a">
+                            <a href="/aboutus/" class="link"><i class="fa fa-info-circle fa-xl" style="margin-right:10px; color:#969696;" aria-hidden="true"></i><span><b>About Us</b></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <section class="ftco-section">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <b>Title</b>
+                                                        <input type="text" class="form-control" style="width:535px;" name="title" id="name" placeholder="Title" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <b>Note</b>
+                                                        <textarea name="note" class="form-control" style="width:535px;" id="message" cols="30" rows="4" placeholder="Take a Note..." required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-2">
+                                                    {% comment %} <div class="form-group">
+                                                        <b>Date & Time</b>
+                                                        <input type="datetime-local" name="date" class="form-control" id="date" style="width:535px;" required/>
+                                                    </div> {% endcomment %}
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Save" class="btn btn-warning" style="width:535px;">
+                                                        <div class="submitting"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 d-flex align-items-stretch">
+                                                    <div class="info-wrap w-100 p-5 img" style="background-image: url(images/img.jpg);">
+                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+        </div>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+</html>

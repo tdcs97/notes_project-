@@ -1,0 +1,9 @@
+a:hover
+{
+    color: #ff0000;
+    border-radius: 1%;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    text-decoration: none;
+}
